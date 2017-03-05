@@ -1,0 +1,16 @@
+{
+  "name": "mocha-param",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./lib/index.js",
+  "scripts": {
+    "test": "mocha ./test/*.js"
+  },
+  "author": "Mike",
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {
+    "mocha": "^3.2.0",
+    "chai": "^3.5.0"
+  }
+}
