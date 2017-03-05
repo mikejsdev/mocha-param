@@ -14,9 +14,8 @@ Simply use 'itParam' instaead of the standard mocha 'it' function and pass in so
 
 ```javascript
 var itParam = require('mocha-param').itParam;
-var expect = require('chai').expect;
 // We have used chai as an assertion library but you can use any.
-
+var expect = require('chai').expect;
 
 // A Simple sync example taking an array as a parameter.
 // 'value' is each value in the array
