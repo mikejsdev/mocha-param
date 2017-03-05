@@ -1,14 +1,23 @@
 {
   "name": "mocha-param",
   "version": "1.0.0",
-  "description": "",
-  "main": "./lib/index.js",
+  "description": "Parameterized tests for Mocha",
+  "main": "lib/index.js",
   "scripts": {
     "test": "mocha ./test/*.js"
   },
-  "author": "Mike",
+  "keywords": [
+    "parameterized",
+    "test",
+    "mocha",
+    "tests"
+  ],
+  "author": "mikejsdev",
   "license": "MIT",
-  "dependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/mikejsdev/mocha-param.git"
+  },
   "devDependencies": {
     "mocha": "^3.2.0",
     "chai": "^3.5.0"
