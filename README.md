@@ -1,8 +1,8 @@
 # Mocha param
 
-# Mocha Param
+## Parameterized tests for Mocha.
 
-This module provides parameterized tests for Mocha.
+Simply pass an array of data into the test and each value in the array will be tested.
 
 ```
 npm install --save-dev mocha-param
