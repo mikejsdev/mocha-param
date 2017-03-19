@@ -8,7 +8,7 @@ npm install --save-dev mocha-param
 
 # Basic Usage
 
-Simply use 'itParam' instaead of the standard mocha 'it' function and pass in some data. 
+Simply use 'itParam' instead of the standard mocha 'it' function and pass in some data. 
 
 ```javascript
 var itParam = require('mocha-param').itParam;
