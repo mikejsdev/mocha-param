@@ -22,7 +22,22 @@ describe("basic mocha test with data", function () {
         expect(value).to.be.a('number');
     })
 })
+
 ```
+
+Result:
+
+```
+ basic mocha test with data
+    ✓ test each value in the array
+    ✓ test each value in the array
+    ✓ test each value in the array
+
+
+  3 passing (25ms)
+
+```
+
 # Async
 
 Standard async mocha tests take a 'done' parameter which is called when execution is finished.
@@ -40,6 +55,19 @@ describe("async mocha test with data", function () {
 })
 ```
 
+Result:
+
+```
+  async mocha test with data
+    ✓ test each value in the array
+    ✓ test each value in the array
+    ✓ test each value in the array
+
+
+  3 passing (17ms)
+
+```
+
 # Array Objects
 
 The array can contain anything that you like.
@@ -53,3 +81,15 @@ describe("an array of objects is passed as a parameter", function () {
     })
 })
 ```
+
+Result:
+
+```
+
+  test with array of data
+    ✓ test each person object in the array
+    ✓ test each person object in the array
+
+
+  2 passing (14ms)
+  ```
