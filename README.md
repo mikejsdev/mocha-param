@@ -8,7 +8,7 @@ npm install --save-dev mocha-param
 
 # Basic Usage
 
-Simply use 'itParam' instead of the standard mocha 'it' function and pass in some data. 
+Simply use 'itParam' instead of the standard mocha 'it' function and pass in an array of data. To display the value being passed in your test, use `${value}` as part of the test description.
 
 ```javascript
 var itParam = require('mocha-param').itParam;
@@ -18,24 +18,22 @@ var expect = require('chai').expect;
 // A Simple sync example taking an array as a parameter.
 // 'value' is each value in the array
 describe("basic mocha test with data", function () {
-    itParam("test each value in the array", [1, 2, 3], function (value) {
+    itParam("test value ${value} is a number", [1, 2, 3], function (value) {
         expect(value).to.be.a('number');
     })
 })
-
 ```
 
 Result:
 
 ```
  basic mocha test with data
-    ✓ test each value in the array
-    ✓ test each value in the array
-    ✓ test each value in the array
+    ✓ test value 1 is a number
+    ✓ test value 2 is a number
+    ✓ test value 3 is a number
 
 
   3 passing (25ms)
-
 ```
 
 # Async
@@ -48,7 +46,7 @@ mocha-param works the same.
 // 'value' each value in the array
 // 'done' is the standard mocha done callback
 describe("async mocha test with data", function () {
-    itParam("test each value in the array", [1, 2, 3], function (done, value) {
+    itParam("test value ${value} is a number", [1, 2, 3], function (done, value) {
         expect(value).to.be.a('number');
         done();
     })
@@ -59,24 +57,23 @@ Result:
 
 ```
   async mocha test with data
-    ✓ test each value in the array
-    ✓ test each value in the array
-    ✓ test each value in the array
+    ✓ test value 1 is a number
+    ✓ test value 2 is a number
+    ✓ test value 3 is a number
 
 
   3 passing (17ms)
-
 ```
 
 # Array Objects
 
-The array can contain anything that you like.
+The array can contain anything that you like. Nested values to be displayed in the test description can be accessed with `${value.<property>}`
 
 ```javascript
 var myData = [{ name: 'rob', age: 23 }, { name: 'sally', age: 29 }];
 
-describe("an array of objects is passed as a parameter", function () {
-    itParam("test each person object in the array", myData, function (person) {
+describe("test that person objects are older than 20", function () {
+    itParam("test person ${value.name} (age ${value.age}) in the array", myData, function (person) {
         expect(person.age).to.be.greaterThan(20);
     })
 })
@@ -85,11 +82,10 @@ describe("an array of objects is passed as a parameter", function () {
 Result:
 
 ```
-
-  test with array of data
-    ✓ test each person object in the array
-    ✓ test each person object in the array
+  test that person objects are older than 20
+    ✓ test person rob (age 23) in the array
+    ✓ test person sally (age 29) in the array
 
 
   2 passing (14ms)
-  ```
+```
