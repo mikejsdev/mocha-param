@@ -1,4 +1,5 @@
-var itParam = require('../lib/index').itParam;
+var itParam = require('../lib/index');
+
 var expect = require('chai').expect;
 
 
@@ -32,3 +33,18 @@ describe("Calling itParam in a loop Async with a done function and a value", fun
         done();
     });
 });
+
+describe("Calling itParam in a loop Async with values in description", function () {
+    itParam("values are: ${value} ", [1, 1, 1], function (done, value) {
+        expect(value).to.equal(1);
+        done();
+    });
+});
+
+describe("Object literal in description should work", function () {
+    itParam(`should pass`, [1, 1, 1], function (done, value) {
+        expect(value).to.equal(1);
+        done();
+    });
+});
+

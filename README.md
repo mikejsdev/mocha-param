@@ -5,18 +5,47 @@
 ```
 npm install --save-dev mocha-param
 ```
+# New in Version 2.0.0
+
+- The tested value can now be included in the description for each test.
+- Optionally use require('mocha-param') rather than require('mocha-param').itParam;
+
 
 # Basic Usage
 
-Simply use 'itParam' instead of the standard mocha 'it' function and pass in an array of data. To display the value being passed in your test, use `${value}` as part of the test description.
+Simply use 'itParam' instead of the standard mocha 'it' function and pass in an array of data.
 
 ```javascript
-var itParam = require('mocha-param').itParam;
+var itParam = require('mocha-param');
 // We have used chai as an assertion library but you can use any.
 var expect = require('chai').expect;
 
 // A Simple sync example taking an array as a parameter.
 // 'value' is each value in the array
+describe("basic mocha test with data", function () {
+    itParam("test value is a number", [1, 2, 3], function (value) {
+        expect(value).to.be.a('number');
+    })
+})
+```
+
+Result:
+
+```
+ basic mocha test with data
+    ✓ test value is a number
+    ✓ test value is a number
+    ✓ test value is a number
+
+
+  3 passing (25ms)
+```
+
+# Add the values being tested into the test descriptions
+
+To display the values being passed into your tests, use "${value}" as part of the test description.
+
+```javascript
 describe("basic mocha test with data", function () {
     itParam("test value ${value} is a number", [1, 2, 3], function (value) {
         expect(value).to.be.a('number');

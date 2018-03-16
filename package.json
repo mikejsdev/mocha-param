@@ -1,6 +1,6 @@
 {
   "name": "mocha-param",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "Parameterized tests for Mocha",
   "main": "lib/index.js",
   "scripts": {
