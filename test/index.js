@@ -48,3 +48,17 @@ describe("Object literal in description should work", function () {
     });
 });
 
+describe("Context inside callback", function () {
+	beforeEach(function() {
+		this.customValue = 1;
+	});
+	
+	itParam('should be accessible (sync)', [1], function(value) {
+		expect(this.customValue).to.equal(1);
+	});
+	
+	itParam('should be accessible (async)', [1], function(done, value) {
+		expect(this.customValue).to.equal(1);
+		done();
+	});
+});
