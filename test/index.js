@@ -1,7 +1,14 @@
 var itParam = require('../lib/index');
+var itParamOld = require('../lib/index').itParam;
 
 var expect = require('chai').expect;
 
+
+describe("Using old-style import", function () {
+	itParamOld("should all pass", [1, 1, 1], function (value) {
+		expect(value).to.equal(1);
+	})
+});
 
 describe("Calling itParam in a loop sync with a value", function () {
     itParam("should all pass", [1, 1, 1], function (value) {
