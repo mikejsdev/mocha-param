@@ -69,3 +69,21 @@ describe("Context inside callback", function () {
 		done();
 	});
 });
+
+describe("Test function utilities", function () {
+	it('should exist', function () {
+		expect(itParam.retries).to.exist;
+		expect(itParam.skip).to.exist;
+		expect(itParam.only).to.exist;
+	});
+	
+	it('should exist (old import)', function () {
+		expect(itParamOld.retries).to.exist;
+		expect(itParamOld.skip).to.exist;
+		expect(itParamOld.only).to.exist;
+	});
+	
+	itParam.skip('should be skipped', [1], function(value) {
+		throw new Error('Test was not skipped');
+	});
+});
