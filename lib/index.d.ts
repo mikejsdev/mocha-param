@@ -1,4 +1,11 @@
-import { Done } from 'mocha'
+import { Context, Done, TestFunction } from 'mocha'
 
-export default function itParam<T>(desc: string, data: T[], callback: (value: T) => void): void;
-export default function itParam<T>(desc: string, data: T[], callback: (done: Done, value: T) => void): void;
+
+type ItParamTestFuncSync = <T>(desc: string, data: T[], callback: (this: Context, value: T) => void) => void;
+type ItParamTestFuncAsync = <T>(desc: string, data: T[], callback: (this: Context, done: Done, value: T) => void) => void;
+type ItParamTestFunc = ItParamTestFuncSync & ItParamTestFuncAsync;
+
+type Utilities = { [P in keyof TestFunction]: ItParamTestFunc };
+
+declare const itParam: ItParamTestFunc & Utilities;
+export default itParam;
